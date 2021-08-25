@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="data"
+            type="String" />
+<!--        یک دیتا به صورت استرینگ دریافت می کنیم و به اتریبیوت image که قبلا تعریف کردیم پاس می دهیم. در adapter این دیتا را در متد instantiateItem به اینجا پاس می دهیم -->
+    </data>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:image="@{data}"
+        android:scaleType="fitXY">
+
+    </ImageView>
+</layout>

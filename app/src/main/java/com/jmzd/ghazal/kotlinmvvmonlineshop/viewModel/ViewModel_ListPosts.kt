@@ -11,7 +11,7 @@ class ViewModel_ListPosts : ViewModel() {
     val mutable = MutableLiveData<List<DataModel_PostItem>>()
     val Com = CompositeDisposable()
     fun Getlist() { // طبیعتا باید یک api به آن پاس بدهیم که از طریق invoke ببه متد دیگر هم دسترسی داریم. یک CompositeDisposable و یک متد که به این شکل نوشته می شود و همان طور که مشاده می شود هر چیزی را پاس بدیم داده از همان نوع را بر می گرداند چون T  بود. مثلا اگر GetLogin را به عنوان api پاس میادادیم به این متد خروجی تبدیل به String میشد. این بسیار کار ما را راحت کرده و نیازی نیست که برای خروجی های متفاوت متدهای گوناگون بنویسیم و تمام کار ما با همین یک متد راه می افند با هر نوع داده ای.
-        Repositry.CustomResponse.request(Api.invoke().Getlist(), Com) {
+        Repositry.CustomResponse.request(Api.invoke().getList(), Com) {
             mutable.value = it
         }
     }
