@@ -7,12 +7,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jmzd.ghazal.kotlinmvvmonlineshop.R
 import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityDetailsBinding
-import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityMainBinding
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.Post
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.Slider
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
-import com.jmzd.ghazal.kotlinmvvmonlineshop.view.adapter.SliderViewPagerAdapter
+import com.jmzd.ghazal.kotlinmvvmonlineshop.adapter.SliderViewPagerAdapter
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Details
 
 class DetailsActivity : AppCompatActivity() {

@@ -13,7 +13,7 @@ import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_PostItem
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
 import com.jmzd.ghazal.kotlinmvvmonlineshop.utils.ClickItems
-import com.jmzd.ghazal.kotlinmvvmonlineshop.view.adapter.RecyclerViewAdapter
+import com.jmzd.ghazal.kotlinmvvmonlineshop.adapter.RecyclerViewAdapter
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_ListPosts
 
 class MainActivity : AppCompatActivity() , ClickItems {

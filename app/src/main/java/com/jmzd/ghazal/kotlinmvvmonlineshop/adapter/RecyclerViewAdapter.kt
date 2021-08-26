@@ -1,4 +1,4 @@
-package com.jmzd.ghazal.kotlinmvvmonlineshop.view.adapter
+package com.jmzd.ghazal.kotlinmvvmonlineshop.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

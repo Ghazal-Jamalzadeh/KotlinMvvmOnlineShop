@@ -2,6 +2,7 @@ package com.jmzd.ghazal.kotlinmvvmonlineshop.repositry
 
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Details
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_PostItem
+import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Status
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -16,14 +17,17 @@ interface Api {
     @GET("index.php")
     fun getList(): Single<List<DataModel_PostItem>> // چون آرایه است چیزی که برمیگردئ لیست می خواهیم. اگر فقط یک object{}  بود لازم نبود لیست باشد و فقط یک<DataModel_PostItem> کافی بود.
 
-
-    // example :
-//    @GET("login.php")
-//    fun Getlogin(): Single<String>
-
     @FormUrlEncoded
     @POST("slider.php") //http://localhost/shop/slider.php?id=2
     fun getDetails(@Field("id")id:String):Single<DataModel_Details>
+
+    @FormUrlEncoded
+    @POST("login.php")
+    fun getLogin(@Field("mobile")mobile:String,@Field("pass")pass:String):Single<DataModel_Status>
+
+    @FormUrlEncoded
+    @POST("reg.php")
+    fun getReg(@Field("name")name:String,@Field("mobile")mobile:String,@Field("email")email:String,@Field("pass")pass:String):Single<DataModel_Status>
 
 
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.
@@ -44,3 +48,10 @@ interface Api {
 //This trick seems especially useful for classes that really only have one method to be used.
 // more -> http://joshskeen.com/kotlins-invoke-operator/
 //By using this, you can "call" your object as if it's a function.
+
+
+
+
+// example :
+//    @GET("login.php")
+//    fun Getlogin(): Single<String>
