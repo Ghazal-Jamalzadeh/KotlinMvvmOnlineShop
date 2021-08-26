@@ -1,5 +1,6 @@
 package com.jmzd.ghazal.kotlinmvvmonlineshop.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,10 +12,11 @@ import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityMainBinding
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_PostItem
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
+import com.jmzd.ghazal.kotlinmvvmonlineshop.utils.ClickItems
 import com.jmzd.ghazal.kotlinmvvmonlineshop.view.adapter.RecyclerViewAdapter
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_ListPosts
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , ClickItems {
    lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +40,15 @@ class MainActivity : AppCompatActivity() {
         //به جای اینکه هر بار recyclerView را برای فراخوانی هر متد فراخوانی کنیم از بلاک also استفاده می کنیم. و با it  به آن دسترسی خواهیم داشت.
         binding.recyclerviewShop.also {
             it.layoutManager= LinearLayoutManager(this)
-            val adapter = RecyclerViewAdapter(list)//,this
+            val adapter = RecyclerViewAdapter(list ,this)
             it.adapter=adapter
         }
+    }
+
+    override fun Click(id: String) {
+        val intent = Intent(applicationContext,DetailsActivity::class.java)
+        intent.putExtra("id",id)
+        startActivity(intent)
     }
 
 }
