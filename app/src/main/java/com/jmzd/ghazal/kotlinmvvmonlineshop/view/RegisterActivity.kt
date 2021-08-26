@@ -8,43 +8,38 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jmzd.ghazal.kotlinmvvmonlineshop.R
-import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityLoginBinding
+import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityRegisterBinding
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
-import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Login
+import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Register
 
-class LoginActivity : AppCompatActivity() {
-    lateinit var bind: ActivityLoginBinding
+class RegisterActivity : AppCompatActivity() {
+    lateinit var bind: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
+        bind = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
-      bind = DataBindingUtil.setContentView(this, R.layout.activity_login)
-
-        val viewmodel = ViewModelProvider(this, Facktory(App())).get(ViewModel_Login::class.java)
+        val viewmodel = ViewModelProvider(this, Facktory(App())).get(ViewModel_Register::class.java)
         bind.viewmodel=viewmodel
-
         viewmodel.mutable.observe(this, Observer {
-            Log.d("test", it.status) //test: error // test: ok
-
+            Log.d("test", it.status)
             if(it.status.equals("ok")){
-//                Repositry.Sharedprofermance.SetSharduser(this,it.user_id)
-
+              //  Repositry.Sharedprofermance.SetSharduser(this,it.user_id)
                 val intent= Intent(applicationContext, ProfileActivity::class.java)
                 startActivity(intent)
 
             }
             else
             {
-
+Log.d("test" , "register error")
             }
         })
         bind.BtnReg.setOnClickListener {
-            val intent=Intent(applicationContext, RegisterActivity::class.java)
+            val intent= Intent(applicationContext,
+                LoginActivity::class.java)
             startActivity(intent)
         }
     }
-
-
 }

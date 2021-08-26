@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Register" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        tools:context=".View.activity.Login_Activity"
+        android:background="@color/bg"
+        android:outlineSpotShadowColor="@color/purple_700"
+        android:outlineAmbientShadowColor="@color/cardview_dark_background">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorPrimary">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/iran"
+                    android:textSize="16dp"
+                    android:layout_centerVertical="true"
+                    android:text="ثبت نام"/>
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            app:cardCornerRadius="20dp">
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            android:background="#fff">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran"
+                android:padding="10dp"
+                android:text="@={viewmodel.name}"
+                android:hint="نام خود را وارد کنید...">
+
+            </EditText>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran"
+                android:padding="10dp"
+                android:text="@={viewmodel.mobile}"
+                android:hint="شماره موبایل را وارد کنید...">
+
+            </EditText>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran"
+                android:padding="10dp"
+                android:text="@={viewmodel.email}"
+                android:hint="ایمیل خود را وارد کنید...">
+
+            </EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran"
+                android:padding="10dp"
+                android:text="@={viewmodel.pass}"
+                android:hint="رمز عبور خود را وارد کنید...">
+
+            </EditText>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/iran"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:text="ثبت نام"
+                android:textColor="@color/white"
+                android:onClick="@{viewmodel.getReg}"/>
+            <Button
+                android:id="@+id/Btn_reg"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/iran"
+                android:padding="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:text="قبلا ثبت نام کردین !"
+                />
+        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>
