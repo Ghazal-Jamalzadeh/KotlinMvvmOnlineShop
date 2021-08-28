@@ -26,7 +26,9 @@ class RegisterActivity : AppCompatActivity() {
         viewmodel.mutable.observe(this, Observer {
             Log.d("test", it.status)
             if(it.status.equals("ok")){
-              //  Repositry.Sharedprofermance.SetSharduser(this,it.user_id)
+
+                Repositry.SharedPreferences.setSharedUser(this,it.user_id)
+
                 val intent= Intent(applicationContext, ProfileActivity::class.java)
                 startActivity(intent)
 

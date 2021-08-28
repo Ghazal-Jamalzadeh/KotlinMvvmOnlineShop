@@ -1,5 +1,6 @@
 package com.jmzd.ghazal.kotlinmvvmonlineshop.repositry
 
+import android.content.Context
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -27,6 +28,22 @@ class Repositry {
             )
         }
     }
+
+    object SharedPreferences{
+        fun setSharedUser(context: Context, id:String){
+            val sharedPreferences = context.getSharedPreferences("user",0)
+            val editor = sharedPreferences.edit()
+            editor.putString("user_id",id)
+            editor.apply()
+        }
+
+        fun getSharedUser(context:Context):String{
+            val sharedPreferences = context.getSharedPreferences("user",0)
+            val userid=sharedPreferences.getString("user_id",null)
+            return userid.toString()
+        }
+    }
+
 
 }
 //class vs object

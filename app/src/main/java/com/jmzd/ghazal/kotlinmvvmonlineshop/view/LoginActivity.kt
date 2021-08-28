@@ -29,7 +29,8 @@ class LoginActivity : AppCompatActivity() {
             Log.d("test", it.status) //test: error // test: ok
 
             if(it.status.equals("ok")){
-//                Repositry.Sharedprofermance.SetSharduser(this,it.user_id)
+
+                Repositry.SharedPreferences.setSharedUser(this,it.user_id)
 
                 val intent= Intent(applicationContext, ProfileActivity::class.java)
                 startActivity(intent)

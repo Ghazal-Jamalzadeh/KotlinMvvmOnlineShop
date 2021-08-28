@@ -2,6 +2,7 @@ package com.jmzd.ghazal.kotlinmvvmonlineshop.repositry
 
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Details
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_PostItem
+import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Profile
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Status
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -28,6 +29,10 @@ interface Api {
     @FormUrlEncoded
     @POST("reg.php")
     fun getReg(@Field("name")name:String,@Field("mobile")mobile:String,@Field("email")email:String,@Field("pass")pass:String):Single<DataModel_Status>
+
+    @FormUrlEncoded
+    @POST("User_info.php")
+    fun getUserInfo(@Field("user_id")user_id:String):Single<List<DataModel_Profile>>
 
 
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.
