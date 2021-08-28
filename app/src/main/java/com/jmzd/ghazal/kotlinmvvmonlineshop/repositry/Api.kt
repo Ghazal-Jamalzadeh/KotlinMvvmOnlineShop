@@ -1,9 +1,6 @@
 package com.jmzd.ghazal.kotlinmvvmonlineshop.repositry
 
-import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Details
-import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_PostItem
-import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Profile
-import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Status
+import com.jmzd.ghazal.kotlinmvvmonlineshop.model.*
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -33,6 +30,11 @@ interface Api {
     @FormUrlEncoded
     @POST("User_info.php")
     fun getUserInfo(@Field("user_id")user_id:String):Single<List<DataModel_Profile>>
+
+    @FormUrlEncoded
+    @POST("list_order.php")
+    fun getListOrder(@Field("user")id:String):Single<List<DataModel_Order>> // تاریخچه سفارشات کاربر
+
 
 
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.

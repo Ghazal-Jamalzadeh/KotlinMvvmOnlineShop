@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="data"
+            type="com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Order" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:layoutDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+            <TextView
+                android:id="@+id/Tv_id_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran"
+                android:textSize="16dp"
+                android:padding="10dp"
+                android:layout_alignParentRight="true"
+                android:lineSpacingExtra="8dp"
+                android:text="شماره سفارش  : "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/Tv_id_order"
+                android:fontFamily="@font/iran"
+                android:textSize="16dp"
+                android:padding="10dp"
+                android:lineSpacingExtra="8dp"
+                android:text="@{data.id}"/>
+            <TextView
+                android:id="@+id/Tv_price_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="#2ECC71"
+                android:textAlignment="center"
+                android:text="مجموع پرداخت : "
+                android:padding="10dp"
+                android:layout_below="@+id/Tv_id_order"
+                android:fontFamily="@font/iran" />
+
+            <TextView
+                android:id="@+id/Tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/Tv_price_title"
+                android:layout_marginTop="20dp"
+                android:textColor="#2ECC71"
+                android:padding="10dp"
+                android:text="@{data.price}"
+                android:textAlignment="center"
+                android:layout_below="@+id/Tv_id_order"
+                android:fontFamily="@font/iran" />
+
+            <Button
+                android:id="@+id/Btn_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="پرداخت موفق"
+                android:textColor="#fff"
+                android:textSize="16dp"
+                android:fontFamily="@font/iran"
+                android:background="#27AE60"
+                android:layout_alignParentBottom="true"/>
+            <Button
+                android:id="@+id/Btn_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="پرداخت ناموفق"
+                android:textColor="#fff"
+                android:textSize="16dp"
+                android:fontFamily="@font/iran"
+                android:background="#E74C3C"
+                android:layout_alignParentBottom="true"/>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
