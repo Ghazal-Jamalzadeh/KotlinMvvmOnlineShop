@@ -35,6 +35,9 @@ interface Api {
     @POST("list_order.php")
     fun getListOrder(@Field("user")id:String):Single<List<DataModel_Order>> // تاریخچه سفارشات کاربر
 
+    @FormUrlEncoded
+    @POST("Get_pricecart.php")
+    fun getPriceCount(@Field("user")id:String):Single<List<DataModel_Price>> // مجموع قیمت سبد خرید کاربر
 
 
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.
