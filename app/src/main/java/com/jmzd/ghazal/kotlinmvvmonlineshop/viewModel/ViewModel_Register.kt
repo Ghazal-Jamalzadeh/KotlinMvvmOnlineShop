@@ -4,8 +4,8 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Status
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Api
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Api
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import io.reactivex.disposables.CompositeDisposable
 
 class ViewModel_Register : ViewModel() {
@@ -17,7 +17,7 @@ class ViewModel_Register : ViewModel() {
     val mutable = MutableLiveData<DataModel_Status>()
     val Com = CompositeDisposable()
     fun getReg(view: View){
-        Repositry.CustomResponse.request(Api.invoke().getReg(name!!,mobile!!,email!!,pass!!),Com){
+        Repository.CustomResponse.request(Api.invoke().getReg(name!!,mobile!!,email!!,pass!!),Com){
             mutable.value=it
         }
     }

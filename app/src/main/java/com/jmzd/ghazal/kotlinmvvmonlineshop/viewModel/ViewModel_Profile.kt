@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Order
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Profile
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Api
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Api
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import io.reactivex.disposables.CompositeDisposable
 
 class ViewModel_Profile : ViewModel() {
@@ -14,11 +14,11 @@ class ViewModel_Profile : ViewModel() {
     val mutableDataOrder = MutableLiveData<List<DataModel_Order>>()
     val Com = CompositeDisposable()
     fun getUser(id:String){
-        Repositry.CustomResponse.request(Api.invoke().getUserInfo(id),Com){
+        Repository.CustomResponse.request(Api.invoke().getUserInfo(id),Com){
             mutable.value=it
         }
 
-        Repositry.CustomResponse.request(Api.invoke().getListOrder(id),Com){
+        Repository.CustomResponse.request(Api.invoke().getListOrder(id),Com){
             mutableDataOrder.value=it
         }
     }

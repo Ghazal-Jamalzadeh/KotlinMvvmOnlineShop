@@ -10,11 +10,11 @@ import com.jmzd.ghazal.kotlinmvvmonlineshop.R
 import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityDetailsBinding
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.Post
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.Slider
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.App
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Facktory
 import com.jmzd.ghazal.kotlinmvvmonlineshop.adapter.SliderViewPagerAdapter
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Api
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Api
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Details
 import io.reactivex.disposables.CompositeDisposable
 
@@ -47,7 +47,7 @@ class DetailsActivity : AppCompatActivity() {
             Viewpager(it.slider)
         })
 
-        val user= Repositry.SharedPreferences.getSharedUser(this)
+        val user= Repository.SharedPreferences.getSharedUser(this)
 
         bind.BtnCartadd.setOnClickListener {
             if(user.isNullOrEmpty()){
@@ -57,7 +57,7 @@ class DetailsActivity : AppCompatActivity() {
             else
             {
                 val Com = CompositeDisposable()
-                Repositry.CustomResponse.request(Api.invoke().addCart(idProduct,"1",user,"add"),Com){
+                Repository.CustomResponse.request(Api.invoke().addCart(idProduct,"1",user,"add"),Com){
                     if(it.status.equals("ok")){
                         val intent=Intent(applicationContext,CartActivity::class.java)
                         startActivity(intent)

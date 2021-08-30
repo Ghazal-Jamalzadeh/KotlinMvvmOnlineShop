@@ -5,13 +5,11 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jmzd.ghazal.kotlinmvvmonlineshop.R
 import com.jmzd.ghazal.kotlinmvvmonlineshop.adapter.CartAdapter
 import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityCartBinding
-import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityMainBinding
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.App
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Facktory
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Cart
 
 class CartActivity : AppCompatActivity() {
@@ -23,7 +21,7 @@ class CartActivity : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val user = Repositry.SharedPreferences.getSharedUser(this)
+        val user = Repository.SharedPreferences.getSharedUser(this)
         val viewmodel = ViewModelProvider(this, Facktory(App())).get(ViewModel_Cart::class.java)
 
         getPrice(viewmodel, user)

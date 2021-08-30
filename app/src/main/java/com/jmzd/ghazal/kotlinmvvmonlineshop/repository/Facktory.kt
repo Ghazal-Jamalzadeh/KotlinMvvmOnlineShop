@@ -1,4 +1,4 @@
-package com.jmzd.ghazal.kotlinmvvmonlineshop.repositry
+package com.jmzd.ghazal.kotlinmvvmonlineshop.repository
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

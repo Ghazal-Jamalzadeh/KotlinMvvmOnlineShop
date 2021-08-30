@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Cart
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Price
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Api
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Api
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import io.reactivex.disposables.CompositeDisposable
 
 class ViewModel_Cart : ViewModel() {
@@ -15,11 +15,11 @@ class ViewModel_Cart : ViewModel() {
     val Com = CompositeDisposable()
 
     fun getPriceCart(user:String){
-        Repositry.CustomResponse.request(Api.invoke().getPriceCount(user),Com){
+        Repository.CustomResponse.request(Api.invoke().getPriceCount(user),Com){
             mutable.value=it
         }
 
-        Repositry.CustomResponse.request(Api.invoke().getCart(user),Com){
+        Repository.CustomResponse.request(Api.invoke().getCart(user),Com){
             mutablecart.value=it
         }
 

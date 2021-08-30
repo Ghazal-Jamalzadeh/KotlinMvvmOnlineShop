@@ -10,9 +10,9 @@ import com.jmzd.ghazal.kotlinmvvmonlineshop.R
 import com.jmzd.ghazal.kotlinmvvmonlineshop.adapter.UserOrderHistoryAdapter
 import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityProfileBinding
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Profile
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.App
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Facktory
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import com.jmzd.ghazal.kotlinmvvmonlineshop.utils.ClickItems
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Profile
 // به جای فرستادن دو تا ریکوئست می توانستیم مثل بخش اسلایدر یک php بنوسیم که در یک ریکوئست همه اطلاعات مورد نیاز ما را بفرستد.
@@ -25,7 +25,7 @@ class ProfileActivity : AppCompatActivity() , ClickItems{
 
         val viewmodel = ViewModelProvider(this, Facktory(App())).get(ViewModel_Profile::class.java)
 
-        val userId= Repositry.SharedPreferences.getSharedUser(this)
+        val userId= Repository.SharedPreferences.getSharedUser(this)
 
 
         viewmodel.getUser(userId)

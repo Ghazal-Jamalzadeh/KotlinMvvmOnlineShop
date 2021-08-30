@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.jmzd.ghazal.kotlinmvvmonlineshop.R
 import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityMainBinding
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_PostItem
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.App
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Facktory
 import com.jmzd.ghazal.kotlinmvvmonlineshop.utils.ClickItems
 import com.jmzd.ghazal.kotlinmvvmonlineshop.adapter.RecyclerViewAdapter
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_ListPosts

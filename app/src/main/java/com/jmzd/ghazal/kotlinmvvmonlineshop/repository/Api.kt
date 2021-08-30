@@ -1,4 +1,4 @@
-package com.jmzd.ghazal.kotlinmvvmonlineshop.repositry
+package com.jmzd.ghazal.kotlinmvvmonlineshop.repository
 
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.*
 import io.reactivex.Single
@@ -46,6 +46,10 @@ interface Api {
     @FormUrlEncoded
     @POST("Addcart.php")
     fun addCart(@Field("product")idproduct:String,@Field("count")count:String,@Field("user")user:String,@Field("check")check:String):Single<DataModel_AddCart> // اضافه کردن آیتم به سبد خرید یا کم کردن
+
+    @FormUrlEncoded
+    @POST("Get_address.php")
+    fun getAddress(@Field("user")id:String):Single<List<DataModel_AddCart>>
 
 
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.

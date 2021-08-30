@@ -10,8 +10,8 @@ import com.bumptech.glide.Glide
 import com.jmzd.ghazal.kotlinmvvmonlineshop.R
 import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ItemsCartBinding
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Cart
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Api
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Api
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import io.reactivex.disposables.CompositeDisposable
 
 class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val change: GetChangeItems, val user: String) : RecyclerView.Adapter<CartAdapter.viewholder>() {
@@ -36,7 +36,7 @@ class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val cha
 
         holder.items.ImMines.setOnClickListener {
             val Com = CompositeDisposable() // میشد این قسمت ها را هم با mutableLiveData و ... پیاده سازی کرد.
-            Repositry.CustomResponse.request(Api.invoke().addCart(data.idproduct,"1",user,"m"),Com){
+            Repository.CustomResponse.request(Api.invoke().addCart(data.idproduct,"1",user,"m"),Com){
                 Log.e("mosbar",it.status)
                 if(it.status.equals("ok")){
                     holder.items.TvPrice.text=it.price[0].price + " تومان "
@@ -48,7 +48,7 @@ class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val cha
 
         holder.items.ImMosbat.setOnClickListener {
             val Com = CompositeDisposable()
-            Repositry.CustomResponse.request(Api.invoke().addCart(data.idproduct,"1",user,"add"),Com){
+            Repository.CustomResponse.request(Api.invoke().addCart(data.idproduct,"1",user,"add"),Com){
                 if(it.status.equals("ok")){
                     Log.e("mosbar",it.status)
                     holder.items.TvPrice.text=it.price[0].price + " تومان "

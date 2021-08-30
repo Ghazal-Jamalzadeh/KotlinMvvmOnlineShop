@@ -9,9 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jmzd.ghazal.kotlinmvvmonlineshop.R
 import com.jmzd.ghazal.kotlinmvvmonlineshop.databinding.ActivityLoginBinding
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.App
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Facktory
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Login
 
 class LoginActivity : AppCompatActivity() {
@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
             if(it.status.equals("ok")){
 
-                Repositry.SharedPreferences.setSharedUser(this,it.user_id)
+                Repository.SharedPreferences.setSharedUser(this,it.user_id)
 
                 val intent= Intent(applicationContext, ProfileActivity::class.java)
                 startActivity(intent)

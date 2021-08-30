@@ -4,8 +4,8 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Status
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Api
-import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Api
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import io.reactivex.disposables.CompositeDisposable
 
 class ViewModel_Login : ViewModel() {
@@ -15,7 +15,7 @@ class ViewModel_Login : ViewModel() {
     val mutable = MutableLiveData<DataModel_Status>()
     val Com = CompositeDisposable()
     fun getLogin(view: View){ // از طریق دیتا بایندینگ یک ویو میگیریم
-        Repositry.CustomResponse.request(Api.invoke().getLogin(mobile!!,pass!!),Com){
+        Repository.CustomResponse.request(Api.invoke().getLogin(mobile!!,pass!!),Com){
             mutable.value=it
         }
     }

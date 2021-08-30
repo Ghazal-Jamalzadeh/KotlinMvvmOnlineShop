@@ -1,4 +1,4 @@
-package com.jmzd.ghazal.kotlinmvvmonlineshop.repositry
+package com.jmzd.ghazal.kotlinmvvmonlineshop.repository
 
 import android.content.Context
 import io.reactivex.Single
@@ -7,7 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
-class Repositry {
+class Repository {
     object CustomResponse{
         //<T:Any> :
         // در اینجا any به این معنی است که چیزی که از آن سمت برای ما ارسال می شود مهم نیست و T هم به معنای generic است. بعضی از کلاس ها از نوع جنریک هستند. و چیزی که برای میفرستند را ما نمی دونیم چیه پس T در نظر میگیریم. برای مثال lis<String> یا می تواند از نوع integer یا یا DataModel  یا هر چیز دیگری باشد.
