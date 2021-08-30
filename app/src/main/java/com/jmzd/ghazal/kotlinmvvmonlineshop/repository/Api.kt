@@ -49,7 +49,7 @@ interface Api {
 
     @FormUrlEncoded
     @POST("Get_address.php")
-    fun getAddress(@Field("user")id:String):Single<List<DataModel_AddCart>>
+    fun getAddress(@Field("user")id:String):Single<List<DataModel_Address>>
 
 
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.

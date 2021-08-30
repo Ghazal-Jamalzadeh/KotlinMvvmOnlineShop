@@ -1,5 +1,6 @@
 package com.jmzd.ghazal.kotlinmvvmonlineshop.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -26,11 +27,11 @@ class CartActivity : AppCompatActivity() {
 
         getPrice(viewmodel, user)
 
-//        Rel_price.setOnClickListener {
-//            val intent=Intent(applicationContext,Activity_Address::class.java)
-//            startActivity(intent)
-//        }
-//
+        binding.RelPrice.setOnClickListener {
+            val intent= Intent(applicationContext,AddressActivity::class.java)
+            startActivity(intent)
+        }
+
         viewmodel.mutablecart.observe(
             this,
             Observer { itcart -> // Default: it: List<DataModel_Cart>
