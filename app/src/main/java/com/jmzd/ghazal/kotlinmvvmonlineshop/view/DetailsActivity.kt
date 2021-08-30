@@ -1,5 +1,6 @@
 package com.jmzd.ghazal.kotlinmvvmonlineshop.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -12,7 +13,10 @@ import com.jmzd.ghazal.kotlinmvvmonlineshop.model.Slider
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.App
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Facktory
 import com.jmzd.ghazal.kotlinmvvmonlineshop.adapter.SliderViewPagerAdapter
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Api
+import com.jmzd.ghazal.kotlinmvvmonlineshop.repositry.Repositry
 import com.jmzd.ghazal.kotlinmvvmonlineshop.viewModel.ViewModel_Details
+import io.reactivex.disposables.CompositeDisposable
 
 class DetailsActivity : AppCompatActivity() {
     lateinit var bind: ActivityDetailsBinding
@@ -26,11 +30,15 @@ class DetailsActivity : AppCompatActivity() {
 //        setContentView(bind.root)
 
         val intentntpostid=intent
+        val idProduct=intentntpostid.getStringExtra("id").toString()
+
 
         bind = DataBindingUtil.setContentView(this,R.layout.activity_details)
 
         val viewmodel = ViewModelProvider(this, Facktory(App())).get(ViewModel_Details::class.java)
-        viewmodel.Getlist(intentntpostid.getStringExtra("id").toString())
+
+        viewmodel.Getlist(idProduct)
+
         viewmodel.mutable.observe(this, Observer {
             val post= Post(it.post[0].date,it.post[0].des,it.post[0].id
                 ,it.post[0].imageurl,it.post[0].price,it.post[0].title,it.post[0].view)  // مقداردهی دیتامدل با داد ای که از api گرفتیم. شامل datamodel_details که شامل پارامترهای هر دو آرایه هست.
@@ -38,6 +46,25 @@ class DetailsActivity : AppCompatActivity() {
             bind.BtnCartadd.text=" افزودن به سبد خرید "+post.price+" تومان "
             Viewpager(it.slider)
         })
+
+        val user= Repositry.SharedPreferences.getSharedUser(this)
+
+        bind.BtnCartadd.setOnClickListener {
+            if(user.isNullOrEmpty()){
+                val intent= Intent(applicationContext,LoginActivity::class.java)
+                startActivity(intent)
+            }
+            else
+            {
+                val Com = CompositeDisposable()
+                Repositry.CustomResponse.request(Api.invoke().addCart(idProduct,"1",user,"add"),Com){
+                    if(it.status.equals("ok")){
+                        val intent=Intent(applicationContext,CartActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+            }
+        }
     }
 
     fun Viewpager(list:List<Slider>){

@@ -31,7 +31,7 @@ class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val cha
         holder.items.data=data
         holder.items.TvTitle.text=data.title
         holder.items.TvPrice.text=data.price + " تومان "
-        holder.items.TvCount.text= " تعداد: "+data.count
+        holder.items.TvCount.text= data.count
         Glide.with(context).load(data.imageurl).into(holder.items.ImPost)
 
         holder.items.ImMines.setOnClickListener {
