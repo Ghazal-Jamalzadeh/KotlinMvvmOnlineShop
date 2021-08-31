@@ -70,6 +70,7 @@
         android:background="#4CAF50"
         android:padding="10dp">
         <TextView
+            android:id="@+id/tvChange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#fff"

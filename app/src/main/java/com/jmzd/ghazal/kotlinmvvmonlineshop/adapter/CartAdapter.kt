@@ -14,8 +14,8 @@ import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Api
 import com.jmzd.ghazal.kotlinmvvmonlineshop.repository.Repository
 import io.reactivex.disposables.CompositeDisposable
 
-class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val change: GetChangeItems, val user: String) : RecyclerView.Adapter<CartAdapter.viewholder>() {
-
+class CartAdapter (val context: Context, val list: ArrayList<DataModel_Cart>, val change: GetChangeItems, val user: String) : RecyclerView.Adapter<CartAdapter.viewholder>() {
+// اینجا ورودی لیست به جای list باید ArrayList تعریف شود تا بتوانیم remove را فراخوانی کنیم برای delete کردن ایتم ها
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewholder {
         return viewholder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.items_cart, parent, false
             )
@@ -41,7 +41,7 @@ class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val cha
                 if(it.status.equals("ok")){
                     holder.items.TvPrice.text=it.price[0].price + " تومان "
 
-                    change.getChange()
+                    change.getChange(0)
                 }
             }
         }
@@ -52,7 +52,20 @@ class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val cha
                 if(it.status.equals("ok")){
                     Log.e("mosbar",it.status)
                     holder.items.TvPrice.text=it.price[0].price + " تومان "
-                    change.getChange()
+                    change.getChange(0)
+                }
+            }
+        }
+
+
+        holder.items.BtnDel.setOnClickListener {
+            val Com = CompositeDisposable()
+            Repository.CustomResponse.request(Api.invoke().deleteCart(data.id),Com){
+                if(it.status.equals("ok")){
+                    list.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyItemRangeChanged(position,list.size) // delete from db and list
+                    change.getChange(1)
                 }
             }
 
@@ -62,7 +75,7 @@ class CartAdapter (val context: Context, val list: List<DataModel_Cart>, val cha
     }
 
     interface GetChangeItems{ // برای زمانی که آیتمی را حذف یا اضافه می کنیم از سبد خرید و باید به ما اطلاع داده شود چون مجموع قیمت تغییر می کند.
-        fun getChange()
+        fun getChange(p:Int)
     }
 
     class viewholder(val items: ItemsCartBinding) : RecyclerView.ViewHolder(items.root)

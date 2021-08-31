@@ -10,7 +10,7 @@
         android:layout_margin="10dp"
         android:layoutDirection="rtl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         app:cardCornerRadius="10dp">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -74,7 +74,21 @@
 
             </LinearLayout>
 
+
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/Btn_Del"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#E91E63"
+            android:textSize="16dp"
+            android:textColor="#fff"
+            android:text="حذف کردن محصول">
+
+        </Button>
+
 
 
     </androidx.cardview.widget.CardView>
