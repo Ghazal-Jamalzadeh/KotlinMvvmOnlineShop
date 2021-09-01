@@ -13,11 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinMvvmOnlineShop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.AddressActivity"></activity>
-        <activity android:name=".view.CartActivity"></activity>
+        <activity android:name=".view.OrderActivity"></activity>
+        <activity android:name=".view.AddressActivity" />
+        <activity android:name=".view.CartActivity" />
         <activity android:name=".view.RegisterActivity" />
         <activity android:name=".view.ProfileActivity" />
-        <activity android:name=".view.LoginActivity"></activity>
+        <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.DetailsActivity" />
         <activity android:name=".view.MainActivity">
             <intent-filter>

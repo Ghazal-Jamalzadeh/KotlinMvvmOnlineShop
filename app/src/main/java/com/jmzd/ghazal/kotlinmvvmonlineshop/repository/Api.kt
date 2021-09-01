@@ -55,7 +55,12 @@ interface Api {
     @POST("del_cart.php")
     fun deleteCart(@Field("idcart")id:String):Single<DataModel_DeleteCart>
 
+    @FormUrlEncoded
+    @POST("Add_order.php")
+    fun addOrder(@Field("user")user:String,@Field("address")address:String):Single<DataModel_AddOrder>
 
+    @GET("pay.php")
+    fun getPay():Single<List<DataModel_Pay>>
 
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.
         operator fun invoke():Api{

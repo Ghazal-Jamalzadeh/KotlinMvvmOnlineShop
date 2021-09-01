@@ -1,5 +1,6 @@
 package com.jmzd.ghazal.kotlinmvvmonlineshop.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -33,7 +34,9 @@ class AddressActivity : AppCompatActivity() {
                 it.layoutManager = LinearLayoutManager(this)
                 val adapter = AddressAdapter(itviewmodel,object: AddressAdapter.Clickaddress{
                     override fun addressid(id: String) {
-
+                        val intent = Intent(applicationContext,OrderActivity::class.java)
+                        intent.putExtra("address",id)
+                        startActivity(intent)
                     }
                 })
                 it.adapter = adapter

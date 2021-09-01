@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="data"
+            type="com.jmzd.ghazal.kotlinmvvmonlineshop.model.DataModel_Pay" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:layoutDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardCornerRadius="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <ImageView
+                android:id="@+id/Im_post"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:padding="20dp"
+                app:image="@{data.image}"/>
+
+            <TextView
+                android:id="@+id/Tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/Im_post"
+                android:fontFamily="@font/iran"
+                android:textSize="16dp"
+                android:text="@{data.title}"
+                android:layout_centerVertical="true"
+                android:lineSpacingExtra="8dp"
+                />
+            <RadioButton
+                android:id="@+id/Rg_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
