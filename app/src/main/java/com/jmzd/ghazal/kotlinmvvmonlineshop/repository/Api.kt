@@ -65,7 +65,7 @@ interface Api {
     companion object{ // در مثال java mvvm این قسمت را در webService پیاده سازی کردیم. این روش بهتری است و در آن از invoke استفاده شده است.
         operator fun invoke():Api{
             return Retrofit.Builder()
-                .baseUrl("http://192.168.1.104/shop/")
+                .baseUrl("http://192.168.43.194/shop/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

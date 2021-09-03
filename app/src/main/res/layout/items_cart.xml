@@ -10,11 +10,12 @@
         android:layout_margin="10dp"
         android:layoutDirection="rtl"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="10dp">
         <RelativeLayout
+            android:id="@+id/mainLayout"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/Im_post"
                 android:layout_width="150dp"
@@ -27,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/Im_post"
                 android:fontFamily="@font/iran"
+                android:textAlignment="center"
                 android:textSize="16dp"
                 android:lineSpacingExtra="8dp"
                 />
@@ -36,16 +38,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/Im_post"
-                android:layout_marginTop="20dp"
                 android:textColor="#2ECC71"
                 android:textAlignment="center"
                 android:layout_below="@+id/Tv_title"
                 android:fontFamily="@font/iran" />
 
             <LinearLayout
-                android:layout_alignParentBottom="true"
+                android:id="@+id/linear"
                 android:layout_marginBottom="25dp"
                 android:layout_toEndOf="@+id/Im_post"
+                android:layout_below="@id/Tv_price"
+                android:layout_above="@id/Btn_Del"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -55,7 +58,7 @@
                     android:id="@+id/Im_mosbat"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@mipmap/signs"
+                    android:src="@mipmap/add_icon"
                     />
 
                 <TextView
@@ -69,26 +72,24 @@
                     android:id="@+id/Im_mines"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@mipmap/minus"
+                    android:src="@mipmap/remove_icon"
                     />
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/Btn_Del"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#E91E63"
+                android:textSize="16dp"
+                android:textColor="#fff"
+                android:layout_below="@id/Im_post"
+                android:text="حذف کردن محصول">
 
+            </Button>
         </RelativeLayout>
-
-        <Button
-            android:id="@+id/Btn_Del"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#E91E63"
-            android:textSize="16dp"
-            android:textColor="#fff"
-            android:text="حذف کردن محصول">
-
-        </Button>
-
 
 
     </androidx.cardview.widget.CardView>

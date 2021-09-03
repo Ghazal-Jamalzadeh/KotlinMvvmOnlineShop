@@ -3,6 +3,7 @@ package com.jmzd.ghazal.kotlinmvvmonlineshop.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -48,9 +49,10 @@ class DetailsActivity : AppCompatActivity() {
         })
 
         val user= Repository.SharedPreferences.getSharedUser(this)
+        Log.d("CurrentUser" , user.toString())
 
         bind.BtnCartadd.setOnClickListener {
-            if(user.isNullOrEmpty()){
+            if(user.isNullOrEmpty()||user=="null"){
                 val intent= Intent(applicationContext,LoginActivity::class.java)
                 startActivity(intent)
             }

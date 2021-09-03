@@ -39,7 +39,8 @@ class CartAdapter (val context: Context, val list: ArrayList<DataModel_Cart>, va
             Repository.CustomResponse.request(Api.invoke().addCart(data.idproduct,"1",user,"m"),Com){
                 Log.e("mosbar",it.status)
                 if(it.status.equals("ok")){
-                    holder.items.TvPrice.text=it.price[0].price + " تومان "
+                   // holder.items.TvPrice.text=it.price[0].price + " تومان "
+                    holder.items.TvPrice.text=it.price_post + " تومان "
 
                     change.getChange(0)
                 }
@@ -51,7 +52,8 @@ class CartAdapter (val context: Context, val list: ArrayList<DataModel_Cart>, va
             Repository.CustomResponse.request(Api.invoke().addCart(data.idproduct,"1",user,"add"),Com){
                 if(it.status.equals("ok")){
                     Log.e("mosbar",it.status)
-                    holder.items.TvPrice.text=it.price[0].price + " تومان "
+                    //holder.items.TvPrice.text=it.price[0].price + " تومان "
+                    holder.items.TvPrice.text=it.price_post + " تومان "
                     change.getChange(0)
                 }
             }

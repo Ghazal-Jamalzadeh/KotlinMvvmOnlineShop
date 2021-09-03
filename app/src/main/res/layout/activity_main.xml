@@ -22,7 +22,7 @@
                 android:fontFamily="@font/iran"
                 android:textSize="16dp"
                 android:layout_centerVertical="true"
-                android:text="فروشگاه خانه اندروید"/>
+                android:text="فروشگاه اندروید + معماری MVVM"/>
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
